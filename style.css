@@ -11,63 +11,100 @@ body {
 
 .card {
     width: 90%;
-/*     max-width: 470px; */
-    background: linear-gradient(135deg, #00feba, #5b548a);
+    max-width: 300px;
+    height: 100vh;
+    max-height: 500px;
+    background: linear-gradient(300deg, rgb(17, 23, 58), #bb8e95, rgb(58, 85, 148));
+    background-size: 180% 180%;
+    animation: gradient-animation 9s ease infinite;
     color: #fff;
-    margin: 100px auto 0;
+    margin: 60px auto;
     border-radius: 20px;
-    padding: 40px 35px;
     text-align: center;
+}
+
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 .search {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
+
 }
 
 .search input {
     border: 0;
     outline: 0;
-    background: #ebfffc;
-    color: #555;
-    padding: 10px 25px;
-    height: 60px;
-    border-radius: 30px;
-    flex: 1;
-    margin-right: 16px;
-    font-size: 18px;
+    background: rgba(0, 0, 0, 0.35);
+    color: white;
+    border-radius: 10px;
+    font-size: 17px;
+    margin: 20px 5px;
+    padding: 10px 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.search input::placeholder {
+    color: white;
 }
 
 .search button {
     border: 0;
     outline: 0;
-    background: #ebfffc;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
+    background: rgba(0, 0, 0, 0.35);
+    border-radius: 30%;
     cursor: pointer;
+    margin: 20px 5px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
 }
 
+/* .search input:hover,
+.search button:hover {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+} */
+
 .search button img {
-    width: 16px;
+    width: 35px;
+    margin: auto;
 }
 
 .weather-icon {
-    width: 30%;
+    width: 25%;
     margin-top: 30px;
+
 }
 
 .weather h1 {
-    font-size: 4rem;
+    width: 50%;
+    margin: auto;
+    font-size: 60px;
     font-weight: 500;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 25px;
+    margin-bottom: 10px;
 }
 
 .weather h2 {
-    font-size: 2rem;
+    width: 50%;
+    margin: auto;
+    font-size: 30px;
     font-weight: 400;
-    margin-top: -10px;
+    /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
+    border-radius: 25px;
 }
 
 
@@ -75,42 +112,92 @@ body {
 
 
 .details {
+
+    width: 90%;
+    margin: 60px auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 10px;
-    margin-top: 50px;
 }
 
 .col {
-    display: flex;
-    align-items: center;
-    text-align: left;
+
     margin-right: 5px;
-    padding-left: 5px;
+    padding: 5px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
 }
 
 .col img {
-    width: 40px;
-    margin-right: 10px;
-    padding-left: 5px;
+    width: 35px;
 }
 
 .col p {
-    font-size: 0.8rem;
+    font-size: 10pt;
 }
 
-.humidity,
-.wind,
-.feels_like {
-    font-size: 0.8rem;
-    /* margin-top: -6px; */
-}
 
 .error {
-    text-align: left;
+    text-align: center;
     margin-left: 10px;
-    font-size: 14px;
+    font-size: 30px;
     margin-top: 10px;
     display: none;
+}
+
+
+@media(max-width:500px) {
+    .card {
+        margin: 0;
+        max-width: 100vw;
+        max-height: 100vh;
+        border-radius: 0;
+        width: 100%;
+    }
+
+    .search {
+        width: 100%;
+        padding-top: 50px;
+        display: block;
+
+    }
+
+    .search input {
+        display: block;
+        width: 90%;
+        margin: auto;
+        padding: 20px 20px;
+        font-size: 25px;
+        margin-bottom: 10px;
+    }
+
+    .search button {
+        width: 40%;
+        border-radius: 10px;
+        margin: auto;
+        padding: 20px 20px;
+    }
+
+    .weather {
+        position: relative;
+        top: 50px;
+    }
+
+    .weather-icon {
+        width: 35%;
+        margin-top: 30px;
+    }
+
+    .col {
+
+        margin-right: 2px;
+        padding-left: 2px;
+    }
+
+    .col img {
+        width: 40px;
+    }
+
+    .col p {
+        font-size: 15pt;
+    }
 }
